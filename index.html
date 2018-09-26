@@ -1,0 +1,29 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"></head>
+    <script type="text/javascript" src="app.js"> </script>
+    <body style="background-color:powderblue;">
+        <h1 style="color:blue; font-family:courier; text-align:center;">My Personal Blog</h1>
+	<fieldset>
+	    <legend style= "font-family:courier; font-size:170%; text-align:center;"> <b> Add Your Post Here</b> </legend>
+		<form action="addpost" method="POST">
+		    <b style= "font-family:courier;">Title:</b><br>
+		    <textarea name="header" style="width: 618px; height: 39px;"></textarea><br>
+		    <b style= "font-family:courier;">Body:</b><br>
+		    <textarea name="body" style="width: 1021px; height: 231px;"></textarea><br>
+		    <input value="Add Post" type="submit">
+		</form>
+	</fieldset>
+	<h1 style="color:blue; font-family:courier; text-align:center;">Recent Posts</h1>
+	<% for(let i = 0; i < posts.length; i++) { %>
+            <article style="border:2px solid Violet;font-family:courier">
+		<h1 style= "color:Blue; text-align:center;"><%= posts[i].header %></h1>
+                <p><%= posts[i].body %></p>
+		<b style= "font-family:courier;">Add a comment here:</b><br>
+		<form action="addcomment" method="POST">
+		    <textarea name="body" style="width: 250px; height: 120px;"></textarea><br>
+		    <input value="Add Comment" type="submit" onclick= "f1(i);">
+		</form>
+            </article><br>
+        <% } %>
+
+</body></html>
